@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/main-game.css">
+</head>
+<body>
+    <div class="cont">
+        <div class="view-port">
+            <div id="for_canvases"></div>
+        </div>
+    </div>
+
+    <div id="pause-menu">
+        <div class="cont">
+            <div class="button" id="to_continue">Продолжить</div>
+            <div class="button" id="to_settings">Настройки</div>
+            <div class="button" id="to_main_menu_without_save">Вернуться в главное меню</div>
+            <div class="button" id="to_main_menu_with_save">Сохранить и выйти</div>
+            <div class="button" id="to_back">Назад</div>
+            
+            <div class="button string">
+                <div class="cont" id="name"></div>
+                <div class="cont" id="bind"></div>
+                <div class="cont" id="alert">!</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/math_funcs.js"></script>
+    <script src="js/bind_name_map.js"></script>
+    <script src="js/main_game_classes.js"></script>
+    <script src="js/main_game.js"></script>
+    <script src="js/main_game_start.js"></script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/main-menu.css">
+</head>
+<body>
+    <div class="background">
+        <img src="" alt="" id="background">
+
+        <div class="screen" id="main" style="top: 0; left: 0;">
+            <div class="cont left-menu">
+                <div class="button" id="to_saves">Начать</div>
+                <div class="button" id="to_settings">Настройки</div>
+                <div class="button" id="to_exit">Выйти</div>
+            </div>
+
+            <div id="saves">
+
+                <div class="button" id="to_main">Назад</div>
+            </div>
+        </div>
+
+        <div class="screen" id="settings" style="top: 1px; left: 0;">
+            <div class="cont left-menu">
+                <div class="button" id="to_main">Назад</div>
+                <div class="button" id="to_binds">Управление</div>
+            </div>
+            <div class="cont" id="for_strings">
+                <div class="string">
+                    <div class="cont" id="name"></div>
+                    <div class="cont" id="bind"></div>
+                    <div class="cont" id="alert">!</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="screen" id="map" style="top: 0; left: 0.35px;">
+            <div class="button" id="to_back">
+                <img src="" alt="">
+            </div>
+            <div class="cont for_mountain">
+                <img src="" alt="" id="mountain">
+                <div class="cont for_markers">
+                    <div class="marker">
+                        <img src="" alt="" id="back">
+                        <!-- <img src="" alt="" id="chapter_icon"> -->
+                        <p class="count"></p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="chapter_info">
+                <div class="cont main">
+                    <img src="" alt="" id="back">
+                    <div class="slider">
+                        <div class="slide" id="slide1">
+                            <img src="sprites/main-menu/map/info-block/photo2.png" alt="" class="back">
+                            <img src="" alt="" class="screenshot">
+                        </div>
+                    </div>
+
+                    <div class="cont points">
+                        <img src="" alt="" class="button" id="prev">
+                        <div class="cont">
+                            <!-- максимум 8 точек. могут быть passed и active -->
+                            <div class="point"></div>
+                        </div>
+                        <img src="" alt="" class="button" id="next">
+                    </div>
+
+                    <div class="button" id="start">Начать</div>
+                </div>
+                
+                <div class="cont title">
+                    <img src="" alt="" id="back">
+                    <!-- <img src="" alt="" id="chapter_icon"> -->
+                    <p class="count">1</p>
+                    <div class="cont berries">
+                        <img src="" alt="">
+                        <p>9999</p>
+                    </div>
+                    <div class="cont deaths">
+                        <img src="" alt="">
+                        <p>9999</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="js/bind_name_map.js"></script>
+    <script src="js/main_menu_classes.js"></script>
+    <script src="js/main_menu.js"></script>
+</body>
+</html>

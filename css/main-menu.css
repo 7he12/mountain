@@ -1,0 +1,606 @@
+* {
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    /* pointer-events: none; */
+    border: none;
+    font-family: "Cousine_regular", serif;
+
+    transition: all .25s;
+}
+*::-webkit-scrollbar {
+    display: none;
+}
+
+@keyframes animation_fade_in_out {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.25;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* general elements */
+
+body {
+    width: calc(1920px * 5);
+    aspect-ratio: 1;
+    background-color: black;
+}
+
+.button {
+    width: 100%;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 600;
+    color: white;
+}
+.button:hover {
+    text-shadow: 5px 5px 0 #2c71d7;
+}
+
+.left-menu {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 35%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5%;
+}
+.left-menu > .button {
+    height: 100px;
+    font-size: 3rem;
+    color: white;
+    opacity: 0;
+}
+
+/*  */
+
+.background {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    width: calc(1920px * 1.5);
+    height: calc(1080px * 2);
+    opacity: 0;
+
+    transition: all .25s;
+}
+.background > img#background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.screen {
+    position: absolute;
+    width: 1920px;
+    height: 1080px;
+    background-color: transparent;
+    /* outline: 1px solid blue; */
+}
+
+/*  */
+
+/* main {
+
+} */
+#saves {
+    position: absolute;
+    left: -25%;
+    translate: -50% 0;
+    width: max-content;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 25px;
+    z-index: 10;
+}
+.save {
+    position: relative;
+    height: 200px;
+    width: 540px;
+}
+
+.save .outer {
+    position: absolute;
+    height: 100%;
+}
+.save .outer > img {
+    height: 100%;
+    width: auto;
+}
+
+.save .outer .avatar {
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    translate: -50% -55%;
+    height: 60%;
+    aspect-ratio: 1;
+}
+.save .outer .avatar > img {
+    height: 100%;
+    aspect-ratio: 1;
+}
+
+.save .outer .name {
+    position: absolute;
+    top: 50%;
+    left: 52.5%;
+    translate: -50% -55%;
+    width: 200px;
+    height: 50px;
+}
+.save .outer .name > input {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border: none;
+    text-decoration: none;
+    outline: none;
+    background-color: transparent;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+.save .outer .name > .dashs {
+    position: absolute;
+    top: 100%;
+    translate: 0 -100%;
+    width: 100%;
+    height: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+}
+.save .outer .name > .dashs > .dash {
+    width: 20%;
+    height: 100%;
+    border-radius: 5px;
+    background-color: burlywood;
+}
+
+.save .outer .button#to_map {
+    position: absolute;
+    height: calc(100% - 20px);
+    width: 125px;
+    top: 50%;
+    left: 83%;
+    translate: -50% -53%;
+}
+.save .outer .button#to_map > img {
+    height: 70%;
+    aspect-ratio: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+}
+/* INNER */
+.save .inner {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+.save .inner > img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50.5% -50%;
+    width: 90%;
+}
+.save .inner .cont {
+    position: absolute;
+    top: 50%;
+    translate: -50% -55%;
+    width: 20%;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.save .inner .cont > p {
+    margin-left: -5px;
+}
+.save .inner .cont img {
+    height: 100%;
+    width: auto;
+}
+.save .inner .cont p {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+.save .inner #berries {
+    left: 50%;
+}
+.save .inner #deaths {
+    left: 77.5%;
+}
+
+.save .inner .trash {
+    position: absolute;
+    bottom: 12.5%;
+    right: 10%;
+    width: 7.5%;
+    aspect-ratio: 1;
+}
+.save .inner .trash img {
+    position: absolute;
+    width: 100%;
+    aspect-ratio: 1;
+}
+.save .inner .trash .window.confirm {
+    position: absolute;
+    top: 50%;
+    right: 115%;
+    translate: 0 -50%;
+    width: 125px;
+    height: 100%;
+    border: 2px solid burlywood;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    font-weight: 400;
+}
+
+#saves .button#to_main {
+    width: 100%;
+    height: 125px; 
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    justify-content: start;
+}
+
+/*  */
+
+#settings {
+    
+}
+
+#settings .cont#for_strings {
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    translate: 0 -50%;
+    width: 45%;
+    height: max-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 25px;
+}
+#settings .cont#for_strings .string {
+    position: relative;
+    width: 100%;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 2rem;
+    font-weight: 600;
+    color: white;
+}
+#settings .cont#for_strings .string > .cont {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#settings .cont#for_strings .string #name {
+
+}
+#settings .cont#for_strings .string #bind {
+    
+}
+#settings .cont#for_strings .string #alert {
+    position: absolute;
+    top: 50%;
+    left: 105%;
+    translate: -50% -50%;
+    height: 50%;
+    aspect-ratio: 1;
+    width: auto;
+    opacity: 0;
+    background-color: red;
+    outline: 3px solid black;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+}
+
+/*  */
+
+#map {
+    position: absolute;
+    z-index: 9;
+
+}
+#map > .button#to_back {
+    position: absolute;
+    top: 50%;
+    left: 1%;
+    translate: 0 -50%;
+    height: 150px;
+    width: 150px;
+    z-index: 8;
+}
+#map > .button#to_back > img {
+    width: 100%;
+    height: 100%;
+}
+
+#map .cont.for_mountain {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    translate: 0 -50%;
+    height: 100%;
+    aspect-ratio: 1;
+    z-index: 7;
+}
+#map .cont.for_mountain img {
+    position: absolute;
+    left: 0;
+    height: 100%;
+}
+#map .cont.for_mountain > .cont.for_markers {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+#map .cont.for_mountain .marker {
+    position: absolute;
+    translate: -50% 0;
+    height: 100px;
+    width: 120px;
+    visibility: hidden;
+    opacity: 0;
+}
+#map .cont.for_mountain .marker > img#back {
+    position: absolute;
+    left: 50%;
+    translate: -50% 0;
+    height: 100%;
+}
+#map .cont.for_mountain .marker > img#chapter_icon {
+    position: absolute;
+    top: 37.5%;
+    left: 50%;
+    translate: -50% -50%;
+    width: 75px;
+    height: 75px;
+}
+#map .cont.for_mountain .marker > p.count {
+    position: absolute;
+    top: 37.5%;
+    left: 50%;
+    translate: -50% -50%;
+    font-size: 3rem;
+}
+#map .cont.for_mountain .marker#marker1 {
+    bottom: 27.5%;
+    left: 15%;
+}
+#map .cont.for_mountain .marker#marker2 {
+    bottom: 35%;
+    left: 40%;
+}
+#map .cont.for_mountain .marker#marker3 {
+    bottom: 55%;
+    left: 65%;
+}
+#map .cont.for_mountain .marker#marker4 {
+    bottom: 80%;
+    left: 50%;
+}
+
+#chapter_info {
+    position: absolute;
+    top: 50%;
+    right: -50%;
+    translate: 0 -50%;
+    width: 35%;
+    height: 75%;
+}
+#chapter_info .title {
+    position: absolute;
+    top: -25px;
+    right: -20%;
+    width: 150%;
+    height: 190px;
+}
+#chapter_info .title img#back {
+    position: absolute;
+    width: 100%;
+}
+#chapter_info .title img#chapter_icon {
+    position: absolute;
+    top: 50%;
+    left: 12.5%;
+    translate: -50% -50%;
+    height: 40%;
+    aspect-ratio: 1;
+}
+#chapter_info .title p.count {
+    position: absolute;
+    top: 50%;
+    left: 12.5%;
+    translate: -50% -50%;
+    font-size: 3rem;
+}
+#chapter_info .title > .cont {
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    translate: -50% -50%;
+    width: max-content;
+    height: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10%;
+    font-size: 2rem;
+    font-weight: 600;
+}
+#chapter_info .title > .cont > img {
+    height: 100%;
+    aspect-ratio: 1;
+}
+#chapter_info .title > .cont.deaths {
+    left: 65%;
+}
+
+
+
+
+#chapter_info .main {
+    position: absolute;
+    top: 75px;
+    left: -1.5%;
+    height: 92.5%;
+    width: 105%;
+}
+#chapter_info .main img#back {
+    position: absolute;
+    width: 100%;
+}
+
+#chapter_info .main .slider {
+    position: absolute;
+    top: 37.5%;
+    left: 50%;
+    translate: -50% -50%;
+    width: 75%;
+    height: 50%;
+}
+#chapter_info .main .slider .slide {
+    position: absolute;
+    top: 50%;
+    left: 200%;
+    translate: -50% -50%;
+    height: 90%;
+    width: 90%;
+}
+#chapter_info .main .slider .slide.active {
+    left: 50%;
+}
+#chapter_info .main .slider .slide > img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+}
+#chapter_info .main .slider .slide > img.back {
+    width: 100%;
+    height: 100%;
+    box-shadow: 
+        -2px 0 10px rgba(0, 0, 0, 30%),
+        2px 0 10px rgba(0, 0, 0, 30%),
+        0 -2px 10px rgba(0, 0, 0, 30%),
+        0 2px 10px rgba(0, 0, 0, 30%);
+}
+#chapter_info .main .slider .slide > img.screenshot {
+    top: 42.5%;
+    left: 50%;
+    width: 90%;
+}
+
+#chapter_info .main .slider .slide#slide1 {
+    transform: rotate(-8deg);
+}
+#chapter_info .main .slider .slide#slide2 {
+    transform: rotate(-2deg);
+}
+#chapter_info .main .slider .slide#slide3 {
+    transform: rotate(10deg);
+}
+#chapter_info .main .slider .slide#slide4 {
+    transform: rotate(5deg);
+}
+#chapter_info .main .slider .slide#slide5 {
+    transform: rotate(-11deg);
+}
+#chapter_info .main .slider .slide#slide6 {
+    transform: rotate(3deg);
+}
+#chapter_info .main .slider .slide#slide7 {
+    transform: rotate(8deg);
+}
+#chapter_info .main .slider .slide#slide8 {
+    transform: rotate(-4deg);
+}
+
+
+
+#chapter_info .main .cont.points {
+    position: absolute;
+    top: 72.5%;
+    left: 50%;
+    translate: -50% -50%;
+    width: 75%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#chapter_info .main .cont.points > img {
+    width: 50px;
+    height: 50px;
+}
+#chapter_info .main .cont.points > .cont {
+    height: 100%;
+    width: 65%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+    padding: 0 20px;
+}
+#chapter_info .main .cont.points > .cont .point {
+    position: relative;
+    height: 50%;
+    aspect-ratio: 1;
+    background-color: lightgray;
+    border-radius: 50%;
+}
+#chapter_info .main .cont.points > .cont .point.passed {
+    background-color: #2c71d7;
+}
+#chapter_info .main .cont.points > .cont .point.passed.active {
+    background-color: red;
+}
+#chapter_info .main .button#start {
+    position: absolute;
+    top: 89.5%;
+    left: 50%;
+    translate: -50% -50%;
+    width: 98%;
+    height: 150px;
+    font-size: 3rem;
+    color: white;
+}
